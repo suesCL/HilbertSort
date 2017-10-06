@@ -4,7 +4,8 @@
 Sorting is a fundamental building block for computation. For example, database systems use sorting extensively. Therefore, developing more efficient sorting algorithm is important as computer architectures evolve. (Satish, Harris, & Garland, 2009) 
 Applications as in GPS guidance system requires representing and store data points in a 2D grid. Efficiently query those 2D geospatial data is important. Also as computer networks become more distributed, the cost of communication through physical space needs to be addressed and the cost of communication is proportional to physical distance. (Orhai & Teuscher) Therefore, it is important to arrange spatial data that are contiguous in memory to be have similar keys.
 One way of sorting 2D data points is along a continuous Hilbert Curve which better preserves distance between 2D points as shown in Fig1. 
-[![Hilbert Curve](HilbertSort/images/HilberCurve.JPG)]
+
+[![Hilbert Curve](https://github.com/HilbertSort/images/HilberCurve.jpg)]
 Fig.1 Six levels of Hilbert curve
 
 ## Background: 
