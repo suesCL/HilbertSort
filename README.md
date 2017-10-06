@@ -1,16 +1,16 @@
 # 2D Data Sorting Algorithm by Hilbert Sort
 
-## Problem Statement: 
+## Problem Statement
 Sorting is a fundamental building block for computation. For example, database systems use sorting extensively. Therefore, developing more efficient sorting algorithm is important as computer architectures evolve. (Satish, Harris, & Garland, 2009) 
 Applications as in GPS guidance system requires representing and store data points in a 2D grid. Efficiently query those 2D geospatial data is important. Also as computer networks become more distributed, the cost of communication through physical space needs to be addressed and the cost of communication is proportional to physical distance. (Orhai & Teuscher) Therefore, it is important to arrange spatial data that are contiguous in memory to be have similar keys.
 One way of sorting 2D data points is along a continuous Hilbert Curve which better preserves distance between 2D points as shown in Fig1. 
 
 ![Hilbert Curve](https://user-images.githubusercontent.com/26426412/31290809-a801efbe-aa82-11e7-9502-3c3ffcdee62d.JPG)
 
-## Background: 
+## Background
 A basic Hilbert curve is shown in top left picture. The square is divided into four quadrants with origin at the center.  The curve starts at the lower left quadrant, move to quadrant in the top left, then to top right and at last to lower right quadrant. Hilbert curve is a recursive in nature which divides the square into four quadrants and recursively fill each quadrant with a rotated copy of a basic Hilbert curve. 
 
-## Algorithm:
+## Algorithm
 Given the locations of interest, they will be sorted recursively based on the order when Hilbert curve visits them. The base case is when there is less than 2 points in the current quadrant. The recurve case will be continue dividing the current quadrant into four quadrants and then place the points into appropriate smaller quadrant.
 
 **Detailed Java implementation:**
@@ -31,7 +31,11 @@ The diagram below provides an example how the algorithm sorts 2D data through re
  
 ![Recursion](https://user-images.githubusercontent.com/26426412/31291373-86d8bff0-aa84-11e7-94a9-0b1f4d358633.JPG)
 
-Based on results from all test cases, the location order from Hilbert sort matches that in output file. One test case has input as shown here. In the inpt file, the first line denotes the number of points and size of the square for placing points. The first two number in subsequent lines represent x,y coordinates of the location, the last symbol is identifier string for the location. 
+**Test Cases:**
+
+Based on results from all test cases, the location order from Hilbert sort matches that in output file. Here presents a test case.
+
+In the inpt file, the first line denotes the number of points and size of the square for placing points. The first two number in subsequent lines represent x,y coordinates of the location, the last symbol is identifier string for the location. 
 
 ```
 32 7
@@ -76,6 +80,7 @@ Hilbert sort list matches output file: true
 
 For the test case involving actual location, I used Google map to verify the Hilbert sort order and find that places that are close to each other on the map tend to sit closer to each other in Hilbert sorted queue. It confirms that Hilbert curve sort items by their relative distance from origin.
 
+## Conclusion
 The Hilbert sort problem taught me the basic principles of how to develop a sorting algorithm and recursion algorithm. To develop a sorting algorithm, one needs to identify the ordering criteria. In our case, the order criterion is based on the position of the quadrant. Recursion needs to divide bigger problem into small steps that can be called many times till meeting base case criteria. Another important lesson is to reduce redundancy and increase efficiency by rethinking the algorithm. For example, instead of using nested if else case and each quadrant having their individual visiting order, we can transform the coordinates to use only one standard order. 
 
 ## Installation
