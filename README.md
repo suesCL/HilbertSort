@@ -12,11 +12,18 @@ A basic Hilbert curve is shown in top left picture. The square is divided into f
 
 ## Algorithm:
 My algorithm will use recursion by dividing square into quadrants to sort the data points. The base case is when there is less than 2 points in the current quadrant. The recurve case will be continue dividing the current quadrant into four quadrants and then place the points into appropriate smaller quadrant.
-**Detailed Java implementation: **
-I created Location object to store each point’s x, y coordinates and identifier string. I used a scanner method to store each location of interest into a queue to be sorted. I had another method to read output using scanner. I have a class called HilbertSort which has a recursive method to sort a Queue of locations. The class has two queues as data fields. One is a queue to store unsorted locations, the other queue to store sorted items.
-In the Hilbert sort recursive method, location objects are put into corresponding quadrants based on x, y values. Each quadrant is a Queue. Next, the program will visit each quadrant starting from lower left, to top left, then to top right, lastly to lower right as the standard order as shown in Figure 2. When visiting each quadrant, if there is only one location in that quadrant, the location will be added to sorted queue. If there are more location objects in that quadrant, it makes a recursive method call while decreasing the square’s length by half. 
-Before making the recursive call, we need adjust the x, y coordinates of each location in that quadrant by translation or reflection along an axis as shown in Figure 3. We need to translate each quadrant’s points to lower left corner so the coordinates always range from 0 to S (size of the square) and maintain their spatial relationships. For example, points in top left quadrant need to reduce y coordinates by S/2 while points in top right quadrant need to reduce both x and y coordinates by S/2 to move to lower left corner. 
-For points in lower left quadrant and lower right quadrant, we need to do reflection along an axis. As shown in Figure 2, the lower two quadrants have different orders visiting their smaller quadrants than the standard order shown in the top two quadrants. Performing a reflection for the points in lower two quadrants allows the lower two quadrants to maintain its original visiting order while the program visits in the order as in the top two quadrants. Even though, the points’ coordinates are changed due to reflection, their relative order remains the same. For example, in lower left quadrant, all the points need to perform reflection along the 45 degrees axis as shown in red line. And in lower right quadrant, the points need to first perform a left translation by S/2 distance and then a reflection along the 45 degree axis.
+
+**Detailed Java implementation:**
+1. Create a location object to store each point’s x, y coordinates and identifier string. Use a scanner method to store each location of interest into a queue to be sorted. Create another scanner method to read output. 
+1. Create a class called HilbertSort which has a recursive method to sort a Queue of locations. The class has two queues as data fields. One is a queue to store unsorted locations, the other queue to store sorted items.
+   1. In the Hilbert sort recursive method, location objects are put into corresponding quadrants based on x, y values. Each quadrant is       a Queue. Next, the program will visit each quadrant starting from lower left, to top left, then to top right, lastly to lower           right as the standard order as shown in Figure 2. When visiting each quadrant, if there is only one location in that quadrant, the       location will be added to sorted queue. If there are more location objects in that quadrant, it makes a recursive method call           while decreasing the square’s length by half. 
+   1. Before making the recursive call, we need adjust the x, y coordinates of each location in that quadrant by translation or
+      reflection along an axis as shown in Figure 3. We need to translate each quadrant’s points to lower left corner so the coordinates       always range from 0 to S (size of the square) and maintain their spatial relationships. 
+      
+      * For points in top left quadrant need to reduce y coordinates by S/2 
+      * For points in top right quadrant need to reduce both x and y coordinates by S/2 to move to lower left corner.
+      * For points in lower left quadrant and lower right quadrant, we need to do reflection along an axis. As shown in Figure 2, the           lower two quadrants have different orders visiting their smaller quadrants than the standard order shown in the top two                 quadrants. Performing a reflection for the points in lower two quadrants allows the lower two quadrants to maintain its original         visiting order while the program visits in the order as in the top two quadrants. Even though, the points’ coordinates are               changed due to reflection, their relative order remains the same. 
+      * In lower left quadrant, all the points need to perform reflection along the 45 degrees axis as shown in red line in Figure 2.           And in lower right quadrant, the points need to first perform a left translation by S/2 distance and then a reflection along the         45 degree axis.
 
 ![Quadrant](https://user-images.githubusercontent.com/26426412/31291387-8e7e04a4-aa84-11e7-9b1e-a26f0a3e2969.JPG)
 
@@ -25,7 +32,7 @@ The diagram below provides an example how the algorithm sorts 2D data through re
 ![Recursion](https://user-images.githubusercontent.com/26426412/31291373-86d8bff0-aa84-11e7-94a9-0b1f4d358633.JPG)
 
 Based on results from all test cases, the location order from Hilbert sort matches that in output file. One test case has input as shown here. 
-32 7
+> 32 7
 0 0 P0
 0 1 P1
 0 2 P2
