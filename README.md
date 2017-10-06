@@ -22,7 +22,8 @@ For points in lower left quadrant and lower right quadrant, we need to do reflec
 
 The diagram below provides an example how the algorithm sorts 2D data through recursion.
  
-Fig. 3 Diagram of Hilbert Sort recursion algorithm procedure
+![Recursion](https://user-images.githubusercontent.com/26426412/31291373-86d8bff0-aa84-11e7-94a9-0b1f4d358633.JPG)
+
 Based on results from all test cases, the location order from Hilbert sort matches that in output file. One test case has input as shown here. 
 32 7
 0 0 P0
