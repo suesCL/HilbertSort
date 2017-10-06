@@ -7,10 +7,10 @@ One way of sorting 2D data points is along a continuous Hilbert Curve which bett
 ![Hilbert Curve]( )
 Fig.1 Six levels of Hilbert curve
 
-Background: 
+##Background: 
 A basic Hilbert curve is shown in top left picture. The square is divided into four quadrants with origin at the center.  The curve starts at the lower left quadrant, move to quadrant in the top left, then to top right and at last to lower right quadrant. Hilbert curve is a recursive in nature which divides the square into four quadrants and recursively fill each quadrant with a rotated copy of a basic Hilbert curve. Given the locations of interest, they will be sorted based on the order when Hilbert curve visits them. 
 
-Algorithm:
+##Algorithm:
 My algorithm will use recursion by dividing square into quadrants to sort the data points. The base case is when there is less than 2 points in the current quadrant. The recurve case will be continue dividing the current quadrant into four quadrants and then place the points into appropriate smaller quadrant.
 Detailed Java implementation: 
 I created Location object to store each point’s x, y coordinates and identifier string. I used a scanner method to store each location of interest into a queue to be sorted. I had another method to read output using scanner. I have a class called HilbertSort which has a recursive method to sort a Queue of locations. The class has two queues as data fields. One is a queue to store unsorted locations, the other queue to store sorted items.
@@ -65,7 +65,7 @@ For the test case involving actual location, I used Google map to verify the Hil
 
 The Hilbert sort problem taught me the basic principles of how to develop a sorting algorithm and recursion algorithm. To develop a sorting algorithm, one needs to identify the ordering criteria. In our case, the order criterion is based on the position of the quadrant. Recursion needs to divide bigger problem into small steps that can be called many times till meeting base case criteria. Another important lesson is to reduce redundancy and increase efficiency by rethinking the algorithm. For example, instead of using nested if else case and each quadrant having their individual visiting order, we can transform the coordinates to use only one standard order. 
 
-References
+##References
 Orhai, M., & Teuscher, C. (n.d.). Spatial Sorting Algorithms for Parallel Computing. 
 Satish, N., Harris, M., & Garland, M. (2009). Designing efficient sorting algorithms for manycore GPUs. Rome: Parallel & Distributed Processing, 2009. IPDPS 2009. IEEE International Symposium.
 
