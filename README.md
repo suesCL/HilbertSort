@@ -8,10 +8,10 @@ One way of sorting 2D data points is along a continuous Hilbert Curve which bett
 ![Hilbert Curve](https://user-images.githubusercontent.com/26426412/31290809-a801efbe-aa82-11e7-9502-3c3ffcdee62d.JPG)
 
 ## Background: 
-A basic Hilbert curve is shown in top left picture. The square is divided into four quadrants with origin at the center.  The curve starts at the lower left quadrant, move to quadrant in the top left, then to top right and at last to lower right quadrant. Hilbert curve is a recursive in nature which divides the square into four quadrants and recursively fill each quadrant with a rotated copy of a basic Hilbert curve. Given the locations of interest, they will be sorted based on the order when Hilbert curve visits them. 
+A basic Hilbert curve is shown in top left picture. The square is divided into four quadrants with origin at the center.  The curve starts at the lower left quadrant, move to quadrant in the top left, then to top right and at last to lower right quadrant. Hilbert curve is a recursive in nature which divides the square into four quadrants and recursively fill each quadrant with a rotated copy of a basic Hilbert curve. 
 
 ## Algorithm:
-My algorithm divides square into quadrants to sort the data points recursively. The base case is when there is less than 2 points in the current quadrant. The recurve case will be continue dividing the current quadrant into four quadrants and then place the points into appropriate smaller quadrant.
+Given the locations of interest, they will be sorted recursively based on the order when Hilbert curve visits them. The base case is when there is less than 2 points in the current quadrant. The recurve case will be continue dividing the current quadrant into four quadrants and then place the points into appropriate smaller quadrant.
 
 **Detailed Java implementation:**
 1. Create a location object to store each point’s x, y coordinates and identifier string. Use a scanner method to store each location of interest into a queue to be sorted. Create another scanner method to read output. 
@@ -31,7 +31,7 @@ The diagram below provides an example how the algorithm sorts 2D data through re
  
 ![Recursion](https://user-images.githubusercontent.com/26426412/31291373-86d8bff0-aa84-11e7-94a9-0b1f4d358633.JPG)
 
-Based on results from all test cases, the location order from Hilbert sort matches that in output file. One test case has input as shown here. 
+Based on results from all test cases, the location order from Hilbert sort matches that in output file. One test case has input as shown here. In the inpt file, the first line denotes the number of points and size of the square for placing points. The first two number in subsequent lines represent x,y coordinates of the location, the last symbol is identifier string for the location. 
 
 ```
 32 7
