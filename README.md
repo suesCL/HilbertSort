@@ -11,7 +11,7 @@ One way of sorting 2D data points is along a continuous Hilbert Curve which bett
 A basic Hilbert curve is shown in top left picture. The square is divided into four quadrants with origin at the center.  The curve starts at the lower left quadrant, move to quadrant in the top left, then to top right and at last to lower right quadrant. Hilbert curve is a recursive in nature which divides the square into four quadrants and recursively fill each quadrant with a rotated copy of a basic Hilbert curve. Given the locations of interest, they will be sorted based on the order when Hilbert curve visits them. 
 
 ## Algorithm:
-My algorithm will use recursion by dividing square into quadrants to sort the data points. The base case is when there is less than 2 points in the current quadrant. The recurve case will be continue dividing the current quadrant into four quadrants and then place the points into appropriate smaller quadrant.
+My algorithm divides square into quadrants to sort the data points recursively. The base case is when there is less than 2 points in the current quadrant. The recurve case will be continue dividing the current quadrant into four quadrants and then place the points into appropriate smaller quadrant.
 
 **Detailed Java implementation:**
 1. Create a location object to store each point’s x, y coordinates and identifier string. Use a scanner method to store each location of interest into a queue to be sorted. Create another scanner method to read output. 
@@ -23,7 +23,7 @@ My algorithm will use recursion by dividing square into quadrants to sort the da
       * For points in top left quadrant need to reduce y coordinates by S/2 
       * For points in top right quadrant need to reduce both x and y coordinates by S/2 to move to lower left corner.
       * For points in lower left quadrant and lower right quadrant, we need to do reflection along an axis. As shown in Figure 2, the           lower two quadrants have different orders visiting their smaller quadrants than the standard order shown in the top two                 quadrants. Performing a reflection for the points in lower two quadrants allows the lower two quadrants to maintain its original         visiting order while the program visits in the order as in the top two quadrants. Even though, the points’ coordinates are               changed due to reflection, their relative order remains the same. 
-      * In lower left quadrant, all the points need to perform reflection along the 45 degrees axis as shown in red line in Figure 2.           And in lower right quadrant, the points need to first perform a left translation by S/2 distance and then a reflection along the         45 degree axis.
+      * For points in lower right quadrant, all the points need to perform reflection along the 45 degrees axis as shown in red line in         Figure 2. And in lower right quadrant, the points need to first perform a left translation by S/2 distance and then a reflection         along the 45 degree axis.
 
 ![Quadrant](https://user-images.githubusercontent.com/26426412/31291387-8e7e04a4-aa84-11e7-9b1e-a26f0a3e2969.JPG)
 
@@ -32,7 +32,9 @@ The diagram below provides an example how the algorithm sorts 2D data through re
 ![Recursion](https://user-images.githubusercontent.com/26426412/31291373-86d8bff0-aa84-11e7-94a9-0b1f4d358633.JPG)
 
 Based on results from all test cases, the location order from Hilbert sort matches that in output file. One test case has input as shown here. 
-> 32 7
+
+```
+32 7
 0 0 P0
 0 1 P1
 0 2 P2
@@ -65,6 +67,7 @@ Based on results from all test cases, the location order from Hilbert sort match
 3 4 00q00
 4 3 00r00
 4 4 00R00
+```
 
 The console output for test case 2000 is shown below. 
 > Sorted locations using Hilbert sort are [P0, P1, P27, P26, P25, 00Q00, P2, P3, P4, P5, P6, P7, P8, P9, P10, 00q00, 00R00, P11, P12, P13, P14, P15, P16, P17, P18, P19, 00r00, P24, P23, P22, P20, P21]
