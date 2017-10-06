@@ -78,6 +78,13 @@ For the test case involving actual location, I used Google map to verify the Hil
 
 The Hilbert sort problem taught me the basic principles of how to develop a sorting algorithm and recursion algorithm. To develop a sorting algorithm, one needs to identify the ordering criteria. In our case, the order criterion is based on the position of the quadrant. Recursion needs to divide bigger problem into small steps that can be called many times till meeting base case criteria. Another important lesson is to reduce redundancy and increase efficiency by rethinking the algorithm. For example, instead of using nested if else case and each quadrant having their individual visiting order, we can transform the coordinates to use only one standard order. 
 
+## Installation
+Here is a brief explanation of directory structure:
+* src/com/company: directory contains the Java source code which are "Main.java","Location.java", "HilberSort.java"
+* HilerbertSort test files: HilberSort-0000.in, HilberSort-0000.out, HilberSort-1001.in, HilberSort-1001.out etc
+
+To install the project, download the entire repository to local directory. Then download IntelliJ IDE and open the HilberSort folder in the IDE. Run Main.java file, and see the output in console output. By changing the input file name in the *main method* and changing output file name in the *getOutput method*, you can test different test cases. 
+
 ## References
 Orhai, M., & Teuscher, C. (n.d.). Spatial Sorting Algorithms for Parallel Computing. 
 Satish, N., Harris, M., & Garland, M. (2009). Designing efficient sorting algorithms for manycore GPUs. Rome: Parallel & Distributed Processing, 2009. IPDPS 2009. IEEE International Symposium.
