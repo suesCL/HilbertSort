@@ -2,7 +2,7 @@
 
 ## Problem Statement
 Sorting is a fundamental building block for computation. For example, database systems use sorting extensively. Therefore, developing more efficient sorting algorithm is important as computer architectures evolve. (Satish, Harris, & Garland, 2009) 
-Applications as in GPS guidance system requires representing and store data points in a 2D grid. Efficiently query those 2D geospatial data is important. Also as computer networks become more distributed, the cost of communication through physical space needs to be addressed and the cost of communication is proportional to physical distance. (Orhai & Teuscher) Therefore, it is important to arrange spatial data that are contiguous in memory to be have similar keys.
+Applications as in GPS guidance system requires representing and store data points in a 2D grid. Efficiently querying those 2D geospatial data is important. Also as computer networks become more distributed, the cost of communication through physical space needs to be addressed and the cost of communication is proportional to physical distance. (Orhai & Teuscher) Therefore, it is important to arrange spatial data that are contiguous in memory to have similar keys.
 One way of sorting 2D data points is along a continuous Hilbert Curve which better preserves distance between 2D points as shown in Fig1. 
 
 ![Hilbert Curve](https://user-images.githubusercontent.com/26426412/31290809-a801efbe-aa82-11e7-9502-3c3ffcdee62d.JPG)
@@ -35,7 +35,7 @@ The diagram below provides an example how the algorithm sorts 2D data through re
 
 Based on results from all test cases, the location order from Hilbert sort matches that in output file. Here presents a test case.
 
-In the inpt file, the first line denotes the number of points and size of the square for placing points. The first two number in subsequent lines represent x,y coordinates of the location, the last symbol is identifier string for the location. 
+In the input file, the first line denotes the number of points and size of the square for placing points. The first two number in subsequent lines represent x,y coordinates of the location, the last symbol is identifier string for the location. 
 
 ```
 32 7
@@ -81,12 +81,12 @@ Hilbert sort list matches output file: true
 For the test case involving actual location, I used Google map to verify the Hilbert sort order and find that places that are close to each other on the map tend to sit closer to each other in Hilbert sorted queue. It confirms that Hilbert curve sort items by their relative distance from origin.
 
 ## Conclusion
-The Hilbert sort problem taught me the basic principles of how to develop a sorting algorithm and recursion algorithm. To develop a sorting algorithm, one needs to identify the ordering criteria. In our case, the order criterion is based on the position of the quadrant. Recursion needs to divide bigger problem into small steps that can be called many times till meeting base case criteria. Another important lesson is to reduce redundancy and increase efficiency by rethinking the algorithm. For example, instead of using nested if else case and each quadrant having their individual visiting order, we can transform the coordinates to use only one standard order. 
+The Hilbert sort problem taught me the basic principles of how to develop a sorting algorithm and recursive algorithm. To develop a sorting algorithm, one needs to identify the ordering criteria. In our case, the order criterion is based on the position of the quadrant. Recursive algorithm solves problem by dividing a big problem into smaller steps and recursively calling the function till meeting base case criteria. Another important lesson is to reduce redundancy and increase efficiency by rethinking the algorithm. For example, instead of using nested if else statements and each quadrant having their individual visiting order, we can transform the coordinates to use only one standard order. Such coordinates transofrmation reduces 3/4 of the original code and increases the code maintainability. 
 
 ## Installation
 Here is a brief explanation of directory structure:
-* src/com/company: directory contains the Java source code which are "Main.java","Location.java", "HilberSort.java"
-* HilerbertSort test files: HilberSort-0000.in, HilberSort-0000.out, HilberSort-1001.in, HilberSort-1001.out etc
+* src/com/company: the directory contains the Java source code which are "Main.java","Location.java", "HilberSort.java"
+* testCases/: the directory contains all input and output test files
 
 To install the project, download the entire repository to local directory. Then download IntelliJ IDE and open the HilberSort folder in the IDE. Run Main.java file, and see the output in console output. By changing the input file name in the *main method* and changing output file name in the *getOutput method*, you can test different test cases. 
 
