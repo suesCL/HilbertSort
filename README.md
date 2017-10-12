@@ -1,4 +1,14 @@
 # 2D Data Sorting Algorithm by Hilbert Sort
+## Table of Contents
+[Problem Statement](#problem-statement)
+
+[Background](#background)
+
+[Algorithm](#algorithm)
+
+[Conclusion](#conclusion)
+
+[Installation](#installation)
 
 ## Problem Statement
 Sorting is a fundamental building block for computation. For example, database systems use sorting extensively. Therefore, developing more efficient sorting algorithm is important as computer architectures evolve. (Satish, Harris, & Garland, 2009) 
@@ -13,7 +23,7 @@ A basic Hilbert curve is shown in top left picture. The square is divided into f
 ## Algorithm
 Given the locations of interest, they will be sorted recursively based on the order when Hilbert curve visits them. The base case is when there is less than 2 points in the current quadrant. The recurve case will be continue dividing the current quadrant into four quadrants and then place the points into appropriate smaller quadrant.
 
-**Detailed Java implementation:**
+### Detailed Java Implementation:
 1. Create a location object to store each point’s x, y coordinates and identifier string. Use a scanner method to store each location of interest into a queue to be sorted. Create another scanner method to read output. 
 1. Create a class called HilbertSort which has a recursive method to sort a Queue of locations. The class has two queues as data fields. One is a queue to store unsorted locations, the other queue to store sorted items.
    1. In the Hilbert sort recursive method, location objects are put into corresponding quadrants based on x, y values. Each quadrant is       a Queue. Next, the program will visit each quadrant starting from lower left, to top left, then to top right, lastly to lower           right as the standard order as shown in Figure 2. When visiting each quadrant, if there is only one location in that quadrant, the       location will be added to sorted queue. If there are more location objects in that quadrant, it makes a recursive method call           while decreasing the square’s length by half. 
@@ -31,7 +41,7 @@ The diagram below provides an example how the algorithm sorts 2D data through re
  
 ![Recursion](https://user-images.githubusercontent.com/26426412/31291373-86d8bff0-aa84-11e7-94a9-0b1f4d358633.JPG)
 
-**Test Cases:**
+### Test Cases:
 
 Based on results from all test cases, the location order from Hilbert sort matches that in output file. Here presents a test case.
 
